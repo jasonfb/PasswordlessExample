@@ -87,3 +87,5 @@ gem "rubycritic", "~> 4.9", :group => :dev
 gem "hot-glue", "~> 0.6.4"
 
 gem "sassc-rails", "~> 2.1"
+
+gem "cssbundling-rails", "~> 1.4"
