@@ -89,3 +89,5 @@ gem "hot-glue", "~> 0.6.4"
 gem "sassc-rails", "~> 2.1"
 
 gem "cssbundling-rails", "~> 1.4"
+
+gem "passwordless", "~> 1.7"
