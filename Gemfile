@@ -65,3 +65,15 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "rspec-rails", "~> 6.1", :groups => [:development, :test]
+gem "rspec-wait", "~> 1.0", :groups => [:development, :test]
+gem "factory_bot_rails", "~> 6.4", :groups => [:development, :test]
+gem "ffaker", "~> 2.23", :groups => [:development, :test]
+gem "vcr", "~> 6.2", :groups => [:development, :test]
+gem "simplecov", "~> 0.22.0", :groups => [:development, :test]
+gem "dotenv-rails", "~> 3.1", :groups => [:development, :test]
+gem "webmock", "~> 3.23", :groups => [:development, :test]
+
+gem "simplecov-rcov", "~> 0.3.7", :group => :test
+gem "launchy", "~> 3.0", :group => :test
