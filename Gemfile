@@ -91,3 +91,6 @@ gem "sassc-rails", "~> 2.1"
 gem "cssbundling-rails", "~> 1.4"
 
 gem "passwordless", "~> 1.7"
+
+gem "sidekiq", "~> 7.3"
+gem "sidekiq-scheduler", "~> 5.0"

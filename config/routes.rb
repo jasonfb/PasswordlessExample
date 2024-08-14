@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Sidekiq::Web => "/sidekiq" 
 
   passwordless_for :users
   root to: "welcome#index"
