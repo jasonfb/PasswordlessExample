@@ -17,11 +17,12 @@ Passwordless.configure do |config|
   #
   # config.paranoid = false # Display email sent notice even when the resource is not found.
 
+  config.token_generator = Passwordless::ShortCodeGenerator.new # Used to generate magic link tokens.
 
   config.after_session_save = lambda do |session, request|
-    # Default behavior is
+    ## TODO: if phone, use SMS instead of email
     Passwordless::Mailer.sign_in(session, session.token).deliver_now
-    # You can change behavior to do something with session model. For example,
+
     # SmsApi.send_sms(session.authenticatable.phone_number, session.token)
   end
 end
