@@ -39,5 +39,15 @@ module PasswordlessExample
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.action_mailer.smtp_settings = {
+      address:              ENV['SENDGRID_SMTP_ADDRESS'],
+      port:                 ENV['SENDGRID_SMTP_PORT'],
+      user_name:            'apikey',
+      password:             ENV['SENDGRID_SMTP_PASSWORD'],
+      authentication:       :login,
+      enable_starttls_auto: true
+    }
+
   end
 end
