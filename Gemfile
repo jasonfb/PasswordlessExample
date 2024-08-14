@@ -81,3 +81,5 @@ gem "launchy", "~> 3.0", :group => :test
 gem "bullet", "~> 7.2", :groups => [:development, :test]
 gem "active_record_query_trace", "~> 1.8", :groups => [:development, :test]
 gem "byebug", "~> 11.1", :groups => [:development, :test]
+
+gem "rubycritic", "~> 4.9", :group => :dev
