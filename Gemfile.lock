@@ -1,3 +1,10 @@
+PATH
+  remote: /Users/jason/Work/_LEARNING/Passwordless/passwordless
+  specs:
+    passwordless (1.7.0)
+      bcrypt (>= 3.1.11)
+      rails (>= 5.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -231,9 +238,6 @@ GEM
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
-    passwordless (1.7.0)
-      bcrypt (>= 3.1.11)
-      rails (>= 5.1.4)
     path_expander (1.1.2)
     pg (1.5.7)
     psych (5.1.2)
@@ -440,7 +444,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   launchy (~> 3.0)
-  passwordless (~> 1.7)
+  passwordless!
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)

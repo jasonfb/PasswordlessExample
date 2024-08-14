@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "support@quickvideo.chat"
+  default from: ENV['DEFAULT_FROM_ADDRESS']
   layout "mailer"
 
 
