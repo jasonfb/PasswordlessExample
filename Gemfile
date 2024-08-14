@@ -85,3 +85,5 @@ gem "byebug", "~> 11.1", :groups => [:development, :test]
 gem "rubycritic", "~> 4.9", :group => :dev
 
 gem "hot-glue", "~> 0.6.4"
+
+gem "sassc-rails", "~> 2.1"
