@@ -94,3 +94,5 @@ gem "passwordless", path: "/Users/jason/Work/_LEARNING/Passwordless/passwordless
 
 gem "sidekiq", "~> 7.3"
 gem "sidekiq-scheduler", "~> 5.0"
+
+gem "twilio-ruby", "~> 7.2"
