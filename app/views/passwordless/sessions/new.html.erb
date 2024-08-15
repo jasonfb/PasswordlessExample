@@ -1,0 +1,81 @@
+
+
+<div class="container">
+
+  <div data-controller="login-screen-selector">
+    <h1>How would you like to sign in?</h1>
+    <div class="row">
+
+      <div class="col-md-6">
+        <%= radio_button_tag :contact_method, 'Email', true,
+                             'data-login-screen-selector-target': 'emailButton' %>
+        <%= label_tag :contact_method_email, 'Email',
+
+                      for:  "contact_method_Email" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= radio_button_tag :contact_method, 'SMS',
+                             'data-login-screen-selector-target': 'smsButton'  %>
+        <%= label_tag :contact_method_sms, 'SMS', for: "contact_method_SMS" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+
+        <%= form_with(model: @session,
+                      url: url_for(action: 'new'),
+                      data: { turbo: 'false',
+                              'login-screen-selector-target': "emailForm",
+                      }) do |f| %>
+
+          <% email_field_name = :"passwordless[#{email_field}]" %>
+
+
+
+          <%= f.label email_field_name,
+                      t("passwordless.sessions.new.email.label"),
+                      for: "passwordless_#{email_field}" %>
+
+
+          <%= email_field_tag email_field_name,
+                              params.fetch(email_field_name, nil),
+                              id: "passwordless_#{email_field}",
+                              required: true,
+                              autofocus: true,
+                              placeholder: t("passwordless.sessions.new.email.placeholder") %>
+          <%= f.submit t("passwordless.sessions.new.submit") %>
+        <% end %>
+
+      </div>
+
+      <div class="col-md-6">
+        <%= form_with(model: @session,
+                      url: url_for(action: 'new'), data: {
+            turbo: 'false' ,
+            'login-screen-selector-target': "smsForm",
+          }) do |f| %>
+
+          <% phone_field_name = :"passwordless[#{phone_field}]" %>
+
+
+
+
+          <%= f.label phone_field_name,
+                      "Phone Number",
+                      for: "passwordless_#{phone_field}" %>
+
+
+          <%= phone_field_tag phone_field_name,
+                              params.fetch(phone_field_name, nil),
+                              required: true,
+                              autofocus: true,
+                              placeholder: "234-567-8901" %>
+          <%= f.submit t("passwordless.sessions.new.submit") %>
+        <% end %>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

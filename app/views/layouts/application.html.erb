@@ -12,6 +12,15 @@
 
   <body>
 
+  <header>
+    <nav>
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Login', users_sign_in_path %></li>
+        <li><%= link_to 'Logout', users_sign_out_path, method: :delete %></li>
+      </ul>
+    </nav>
+  </header>
   <%= render partial: 'layouts/flash_notices' %>
   
     <%= yield %>

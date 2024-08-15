@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import LoginScreenSelectorController from "./login_screen_selector_controller"
+application.register("login-screen-selector", LoginScreenSelectorController)

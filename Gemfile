@@ -90,7 +90,8 @@ gem "sassc-rails", "~> 2.1"
 
 gem "cssbundling-rails", "~> 1.4"
 
-gem "passwordless", path: "/Users/jason/Work/_LEARNING/Passwordless/passwordless"
+gem "passwordless", path: "/Users/jason/Work/_LEARNING/Passwordless/passwordless", require: true
+
 
 gem "sidekiq", "~> 7.3"
 gem "sidekiq-scheduler", "~> 5.0"

@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require "byebug"
 
 require  "./lib/passwordless/short_code_generator"
 
@@ -8,6 +9,8 @@ require  "./lib/passwordless/short_code_generator"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+
 
 module PasswordlessExample
   class Application < Rails::Application
@@ -58,3 +61,4 @@ module PasswordlessExample
 
   end
 end
+
