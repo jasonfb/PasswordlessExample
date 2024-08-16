@@ -24,3 +24,18 @@ Node + Ruby versions are in `.node-version` and `.ruby-version`, respectively.
 
 run with `bin/rake`
 
+
+# Your `.env.local` file must contain
+* credentials not included *
+```
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_SENDER_NUMBER=
+SENDGRID_SMTP_ADDRESS=smtp.sendgrid.net
+SENDGRID_SMTP_PORT=587
+SENDGRID_SMTP_PASSWORD=
+DEFAULT_FROM_ADDRESS=support@domain.com
+```
+
+`SENDGRID_SMTP_PASSWORD` is also known as the API key which you get from the Sendgrid interface.
+`TWILIO_SENDER_NUMBER` should begin with `+1` and be a valid and approved sender number on your associated Twilio account. 
