@@ -4,8 +4,13 @@ This is a proof-of-concept for authentication using Passwordless gem only that a
 • Email
 • SMS
 
+Step 1
 ![passwordless-example1](https://github.com/user-attachments/assets/0f953a2f-5295-48f3-a53d-d6048aedf0be)
 
+
+Step 2
+
+![PasswordlessExample 2024-08-16 15-42-05](https://github.com/user-attachments/assets/2a07ff24-ed72-4160-920b-56718fb32678)
 
 
 As well, it modifies the passwordless sessions_controller to make users on the fly, if they don't exist.
