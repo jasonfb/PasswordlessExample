@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   passwordless_with :email_or_phone # <-- here! this needs to be a column in `users` table
 
-
+  validates_presence_of :email, if: -> { phone.blank? }
+  validates_presence_of :phone, if: -> { email.blank? }
+  
   def email_or_phone
     email || phone
   end
