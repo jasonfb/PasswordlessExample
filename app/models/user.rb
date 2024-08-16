@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   validates_presence_of :email, if: -> { phone.blank? }
   validates_presence_of :phone, if: -> { email.blank? }
-  
+
   def email_or_phone
     email || phone
   end
