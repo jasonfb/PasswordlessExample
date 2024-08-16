@@ -5,6 +5,7 @@ This is a proof-of-concept for authentication using Passwordless gem only that a
 • SMS
 
 Step 1
+
 ![passwordless-example1](https://github.com/user-attachments/assets/0f953a2f-5295-48f3-a53d-d6048aedf0be)
 
 
@@ -13,7 +14,9 @@ Step 2
 ![PasswordlessExample 2024-08-16 15-42-05](https://github.com/user-attachments/assets/2a07ff24-ed72-4160-920b-56718fb32678)
 
 
-As well, it modifies the passwordless sessions_controller to make users on the fly, if they don't exist.
+The user then logs in via 6-digit code ubiqutiously. To do this, several modifications to Passwordless's code needed to be made, including passwordless config.after_session_save as well the sessions_controller (I was oddly unable to monkeypatch here so I copied the whole sessions_controller file to achieve this.)
+
+Users not already in the database are created on the fly, if they don't exist.
 
 
 # About
