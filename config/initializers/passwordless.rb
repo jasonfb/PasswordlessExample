@@ -21,8 +21,14 @@ Passwordless.configure do |config|
 
   config.after_session_save = lambda do |session, request|
     ## TODO: if phone, use SMS instead of email
-    Passwordless::Mailer.sign_in(session, session.token).deliver_now
 
+
+    if request.params[:passwordless][:signin_method] == "email"
+      Passwordless::Mailer.sign_in(session, session.token).deliver_now
+    elsif request.params[:passwordless][:signin_method] == "sms"
+      SmsService.send_sms(phone_number: session.authenticatable.phone,
+                      message: "Use code #{session.token} on quickvideo.chat to sign in (code will expire in 10 minutes)")
+    end
     # SmsApi.send_sms(session.authenticatable.phone_number, session.token)
   end
 end

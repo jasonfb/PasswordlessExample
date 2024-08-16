@@ -31,7 +31,7 @@
 
           <% email_field_name = :"passwordless[#{email_field}]" %>
 
-
+          <%= hidden_field_tag 'passwordless[signin_method]', "email" %>
 
           <%= f.label email_field_name,
                       t("passwordless.sessions.new.email.label"),
@@ -56,21 +56,22 @@
             'login-screen-selector-target': "smsForm",
           }) do |f| %>
 
-          <% phone_field_name = :"passwordless[#{phone_field}]" %>
+          <% phone_field_name = :"passwordless[phone]" %>
 
 
+          <%= hidden_field_tag 'passwordless[signin_method]', "sms" %>
 
 
-          <%= f.label phone_field_name,
+          <%= f.label :phone,
                       "Phone Number",
-                      for: "passwordless_#{phone_field}" %>
+                      for: "passwordless_phone" %>
 
 
           <%= phone_field_tag phone_field_name,
-                              params.fetch(phone_field_name, nil),
+                              params.fetch(:phone, nil),
                               required: true,
                               autofocus: true,
-                              placeholder: "234-567-8901" %>
+                              placeholder: "234-567-8901n y" %>
           <%= f.submit t("passwordless.sessions.new.submit") %>
         <% end %>
 

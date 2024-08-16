@@ -1,7 +1,8 @@
 class SmsService
-  def self.send_sms(phone_number, message)
+  def self.send_sms(phone_number: ,
+                    message: )
 
-    actual_phone = "+1" + phone_number
+    actual_phone = "+1" + phone_number.to_s
 
     @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'],
                                        ENV['TWILIO_AUTH_TOKEN']

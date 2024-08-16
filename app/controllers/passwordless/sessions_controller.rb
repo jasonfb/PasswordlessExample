@@ -37,6 +37,7 @@ module Passwordless
     # post '/:resource/sign_in'
     #   Creates a new Session record then sends the magic link
     #   redirects to sign in page with generic flash message.
+
     def create
       handle_resource_not_found unless @resource = find_authenticatable
       @session = build_passwordless_session(@resource)
@@ -205,10 +206,17 @@ module Passwordless
     end
 
     def find_authenticatable
-      if authenticatable_class.respond_to?(:fetch_resource_for_passwordless)
-        authenticatable_class.fetch_resource_for_passwordless(normalized_email_param)
-      else
-        authenticatable_class.where("lower(#{email_field}) = ?", normalized_email_param).first
+      if passwordless_session_params[:signin_method] == "email"
+        if authenticatable_class.respond_to?(:fetch_resource_for_passwordless)
+          authenticatable_class.fetch_resource_for_passwordless(normalized_email_param)
+        else
+          User.find_by("lower(#{email_field}) = ?", normalized_email_param).first
+          if !user
+            User.find_or_create_by(email: normalized_email_param)
+          end
+        end
+      elsif passwordless_session_params[:signin_method] == "sms"
+        User.find_or_create_by(phone: passwordless_session_params[:phone])
       end
     end
 
@@ -265,7 +273,10 @@ module Passwordless
     end
 
     def passwordless_session_params
-      params.require(:passwordless).permit(:token, authenticatable_class.passwordless_email_field)
+      params.require(:passwordless).permit(:token,
+                                           :signin_method,
+                                           authenticatable_class.passwordless_phone_field,
+                                           authenticatable_class.passwordless_email_field)
     end
   end
 end
